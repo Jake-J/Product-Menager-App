@@ -28,5 +28,5 @@ How to run:
                          
 5.Make sure ports :8090 and :4200 aren't use by your local machine. 
 5.Start springboot app by executing `SpringJPA-Postgres-1-0.0.1-SNAPSHOT.jar` file in target directory.        
-6.Start angular in dev mode by running `npm run start` in command line at angular5-cli folder.
-7.visist 127.0.0.1:4200 at your browser to see the app.
+6.Start angular in dev mode by running `npm run start` in command line at angular5-cli folder. <br />
+7.Visit 127.0.0.1:4200 at your browser to see the app.
