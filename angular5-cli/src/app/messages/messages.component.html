@@ -1,0 +1,7 @@
+<div *ngIf="messageService.messages.length" class="messages-here">
+
+  <h2>Actions performed:</h2>
+  <button class="clear" (click)="messageService.clear()" label="Danger"  class="ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only message-btn">clear</button>
+  <div *ngFor='let message of messageService.messages' class="action-message"> {{message}} </div>
+  
+</div>

@@ -1,0 +1,122 @@
+.header-here{
+    width:100%;
+    background-color:#1b8e7b;
+    position: relative;
+}
+
+.page-title{
+    text-align: center;
+    text-shadow: 1px 2px 2px #46af9e;
+    margin:0;
+    max-width: 400px;
+}
+
+.nav-list{
+    background-color: #444;
+    text-align: center;
+    width:100%;
+}
+
+.nav-link{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px;
+    color:#fff;
+    text-decoration: none;
+    display:inline-block;
+    padding:6px 12px;
+    height:100%;
+}
+
+.nav-link:hover{
+  background-color: #005f5f;
+  color:#fff;
+  text-shadow:1px 1px 2px #000;
+  text-decoration: none;
+}
+
+.active-route{
+    background-color:#e6efee;
+    color:#444;
+    text-decoration: underline;
+}
+
+.content-here{
+    padding-top:20px;
+}
+
+.page-title,.contrast-font-control{
+    display: inline-block;
+}
+.contrast-font-control{
+    position: absolute;
+    right: 10%;
+    height:100%;
+    display:flex;
+    align-content: space-between;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.contrast-here,.fontsize-here{
+    display: flex;
+}
+.contrasts-list,.fontsizes-list{
+    list-style-type: none;
+    /* display: inline-block; */
+}
+.contrast-btn,.fontsize-item{
+     display: inline-block; 
+}
+.contrasts-label{
+    line-height: 35px;
+    margin-right: 8px;
+}
+.contrast-btn{
+    width:35px;
+    height: 35px;
+    line-height: 29px;
+    text-indent: 9px;
+    font-weight: 600;
+    border-radius:50%;
+    border:3px solid black;
+}
+.contrast-btn-1{
+    background-color:#005f5f;
+    color:#fff;
+}
+.contrast-btn-2{
+    background-color:#fff;
+    color:#005f5f;
+}
+.contrast-btn-3{
+    background-color: yellow;
+    border-color: #fff;
+}
+.contrast-btn-4{
+    background-color: #000;
+    border-color: yellow;
+    color:#fff;
+}
+.fontsize-item{
+    font-weight: 600;
+    margin-left:5px;
+}
+.fontsize-item:active{
+    text-decoration: underline;
+}
+.fontsize-item:hover,.contrast-btn:hover{
+    cursor:pointer;
+}
+/* .fontsizes-list{
+    line-height: 0.3em;
+} */
+.fontsize-label{
+    padding-top: 7px;
+}
+.fontsize-2{
+    font-size: 1.1em;
+}
+.fontsize-3{
+    font-size: 1.25em;
+}

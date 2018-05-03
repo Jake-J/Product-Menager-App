@@ -1,0 +1,114 @@
+<!-- <button (click)="getProducts()">Show All products</button> -->
+
+<!-- <div class="action-box">{{ action message }}</div> -->
+
+<div *ngIf="productsList" class="products-wrap ui-g-12">
+  <div class="table-here" class="ui-g-12 left-section">
+    <h2 class="section-head product-head">Currently availble products</h2>
+    <div class="table-modify-section ui-g ui-fluid">
+      <div *ngIf="validationMessages.length" class="ui-g-12 ui-md-12">
+        <p>Action couldn't be performed:</p>
+        <ol>
+          <li class="validation-message" *ngFor="let valMes of validationMessages">{{valMes}}</li>
+        </ol>
+      </div>
+      <div class="add-new-para table-modify-elem ui-md-6 ui-g-12" (click)="toggleAddingInputs()">
+        <i class="fa icon fa-plus" *ngIf="!addingNew"></i>
+        <i class="fa icon fa-minus" *ngIf="addingNew"></i>
+        Add new product
+      </div>
+      
+      <div class="ui-inputgroup table-modify-elem ui-md-6 ui-g-12">
+        <span class="ui-inputgroup-addon"><i class="fa fa-search"></i></span>
+        <input type="text" pInputText placeholder="Search Product" [(ngModel)]="searchName" (input)="searchFor()" class="ui-inputtext ui-corner-all ui-state-default ui-widget" >
+      </div>
+    </div>
+    <div *ngIf="addingNew">
+      <div class="ui-g ui-fluid adding-here">
+        <div class="ui-inputgroup ui-g-12 ui-md-4">
+            <span class="ui-inputgroup-addon"><i class="fa fa-dropbox"></i></span>
+            <span class="ui-float-label">
+                <input id="add-new-product-name" class="add-product-input ui-inputtext ui-state-default ui-widget" type="text" #nameInputPost pInputText placeholder="name">
+            </span>
+            <!-- <input type="text" id="add-new-product-name" #nameInputPost placeholder="Name"/>          -->
+        </div>
+        <div class="ui-inputgroup ui-g-12 ui-md-4">
+            <span class="ui-inputgroup-addon">$</span>
+            <span class="ui-float-label">
+                <input id="add-new-product-price" pinputtext="" class="ui-inputtext ui-state-default ui-widget add-product-input" type="number" #priceInputPost placeholder="price"> 
+            </span>
+        </div>
+        <div class="ui-g-12 ui-md-4">
+          <p-dropdown required [options]="distributors" [(ngModel)]="selectedDist" placeholder="Select distributor" optionLabel="name" ></p-dropdown>
+        </div>
+        <div class="ui-g-12 ui-md-4">
+            <button (click)="addNewProduct(nameInputPost,priceInputPost)" icon="fa-check"  iconpos="right" label="Click" pbutton="" type="button" class="ui-button ui-button-success ui-widget ui-state-default ui-corner-all ui-button-text-icon-right add-product-btn"><span class="ui-button-icon-right ui-clickable fa fa-fw fa-check"></span><span class="ui-button-text ui-clickable">Add new</span></button>
+        </div>
+      </div>
+      <!-- <button (click)="postProduct(nameInputPost,priceInputPost)">Add Product</button> -->
+    </div>
+    <table class="product-table">
+      <thead class="product-table-head">
+        <tr class="product-table-head-row">
+          <td class="product-cell">
+            <span class="head-cell-text">id</span>
+            <div class="sort-control">
+              <span class="caret caret-up" (click)="sortData(false,'id')">&#9650;</span>
+              <span class="caret caret-down" (click)="sortData(true,'id')">&#9660;</span>
+            </div>
+          </td>
+          <td class="product-cell product-head-cell">
+            <span class="head-cell-text">name</span>
+            <div class="sort-control">
+              <span class="caret caret-up" (click)="sortData(false,'name')">&#9650;</span>
+              <span class="caret caret-down" (click)="sortData(true,'name')">&#9660;</span>
+            </div>
+          </td>
+          <td class="product-cell product-head-cell">
+            <span class="head-cell-text">price</span>
+            <div class="sort-control">
+              <span class="caret caret-up" (click)="sortData(false,'price')">&#9650;</span>
+              <span class="caret caret-down" (click)="sortData(true,'price')">&#9660;</span>
+            </div>
+          </td>
+          <td class="product-cell product-head-cell">actions</td>
+        </tr>
+      </thead>
+      <tbody class="product-table-body">
+        <tr *ngFor="let product of showProductsList" class="product-table-body-row product-row">
+          <td class="product-cell" #prodID>{{product.id}}</td>
+          <td class="product-cell">
+            <span *ngIf="editRow!=product.id">{{product.name}}</span>
+            <span *ngIf="editRow==product.id"><input type="text" [(ngModel)]="editingProduct.name" class="editInput" value="product.name"></span>
+          </td>
+          <td class="product-cell">
+              <span *ngIf="editRow!=product.id">{{product.price}}$</span>
+              <span *ngIf="editRow==product.id"><input type="number"  class="editInput" [(ngModel)]="editingProduct.price" >$</span>
+          </td>
+          <td class="product-cell">
+            <i class="fa icon fa-pencil" (click)="toggleEditMode(prodID)" *ngIf="editRow!=product.id"></i>
+            <i class="fa icon fa-save" (click)="editExistingProduct(prodID)" *ngIf="editRow==product.id"></i>
+            <i class="fa icon fa-trash"(click)="deleteProduct(prodID)"></i>
+            <i class="fa icon fa-info-circle"(click)="setProductDetails(product.id,product.name,product.price,product.distributor)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p-dialog [(visible)]="display" [contentStyle]="{'overflow':'visible'}" [width]="300" [responsive]="true" showEffect="fade" [modal]="true"
+*ngIf="productDetails.id
+&&productDetails.name
+&&productDetails.distributor">
+    <p-header class="dialog-head">
+        Distributor
+    </p-header>
+    <div class="dialog-body">
+      <p>id:{{productDetails.distributor.id}}</p>
+      <p>name:{{productDetails.distributor.name}}</p>
+    </div>
+</p-dialog>
+
+
+
+<!-- <button type="text" (click)="" pButton icon="fa-external-link-square" label="Show">dfsdfsdfsd</button> -->

@@ -1,0 +1,49 @@
+
+<div class="ui-g fluid" >
+    <div class="header-here" >
+      <h1 class="page-title ui-g-12">Product Menager</h1>
+       <div class="contrast-font-control">
+          <div class="contrast-here">
+            <p class="contrasts-label">Contrast</p>
+            <ul class="contrasts-list">
+              <li class="contrast-btn contrast-btn-1">A</li>
+              <li class="contrast-btn contrast-btn-2">A</li>
+              <li class="contrast-btn contrast-btn-3">A</li>
+              <li class="contrast-btn contrast-btn-4">A</li>
+            </ul>
+          </div>
+          <div class="fontsize-here">
+            <p class="fontsize-label">Font size</p>
+            <ul class="fontsizes-list">
+              <li class="fontsize-1 fontsize-item" (click)="setFontsize(1)">A</li>
+              <li class="fontsize-2 fontsize-item" (click)="setFontsize(1.1)">A<sup>+</sup></li>
+              <li class="fontsize-3 fontsize-item" (click)="setFontsize(1.25)">A<sup>++</sup></li>
+            </ul>
+          </div>
+       </div>
+    </div>
+    <nav class="nav-list" [style.fontSize.em]="fontsize">
+      <a routerLink="/about" 
+         class="nav-link"
+         routerLinkActive="active-route"  
+         >
+         About</a><a routerLink="/products" 
+         class="nav-link" 
+         routerLinkActive="active-route"
+         >
+      Products List</a><a routerLink="/distributors" 
+         class="nav-link" 
+         routerLinkActive="active-route"
+         >
+      Our Distributors</a>
+    </nav>
+</div>
+<div class="ui-g fluid content-here" [style.fontSize.em]="fontsize">
+  <div class="ui-md-8 ui-g-12">
+  <router-outlet></router-outlet>
+  </div>
+  <div class="ui-md-4 ui-g-12" [style.fontSize.em]="fontsize" >
+    <app-messages></app-messages>
+  </div>
+</div>
+

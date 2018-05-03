@@ -1,0 +1,26 @@
+<div class="about-wrap ui-g-12">
+  <h2 class="about-head">About us</h2>
+
+  <p class="about-para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quos eum accusamus placeat voluptatem molestias ea officia, aliquid quisquam maiores quod cupiditate, atque esse ratione obcaecati ipsum debitis facilis cum sapiente magnam magni earum est. Necessitatibus ratione commodi ducimus assumenda rem doloremque explicabo nihil, fugit sequi est. Earum, aliquid minima.</p>
+  <img src="https://www.buehler.ca/images/buttons/Product_Icon.png" alt="about section image" class="about-image"> 
+  <div class="ui-g-12" >
+    <div class="ui-md-6 ui-g-12" *ngIf="products">
+      <h3>Our top products</h3>
+      <div *ngFor="let product of products" class="ui-g-12">
+        <div class="top-item-content">
+          <p>name: {{product.name}}</p>
+          <p>price: {{product.price}}$</p>
+          <p>distributor: {{product.distributor.name}}</p>
+          </div>
+      </div>
+    </div>
+    <div class="ui-md-6 ui-g-12" *ngIf="distributors">
+        <h3>Our top distributors</h3>
+        <div *ngFor="let distributor of distributors" class="ui-g-12">
+          <div class="top-item-content">
+            <p>id: {{distributor.id}}</p>
+            <p>name: {{distributor.name}}</p>
+          </div>
+        </div>
+    </div>
+</div>

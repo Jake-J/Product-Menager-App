@@ -1,0 +1,21 @@
+.about-wrap{
+    text-align: center;
+}
+.about-head{
+    font-size:1.7em;
+    margin-bottom:10px;
+}
+.about-para{
+    line-height: 1.4em;
+    font-size:1.2em;
+    word-spacing: 1.2;
+    text-align: justify;
+    padding:20px;
+}
+.top-item-content{
+    border:2px solid lightblue;
+    border-radius:5px;
+    width:250px;
+    margin:0 auto;
+    padding:15px 0;
+}

@@ -1,0 +1,46 @@
+.distributors-here{
+    text-align: center;
+}
+.distributor-item{
+    list-style-type: none;
+    position: relative;
+    height:160px;
+    max-height: 220px;
+}
+.distributor-item-wrap{
+    position: relative;
+}
+.distributor-item-content{
+    padding:10px;
+    background-color:#005f5f;
+    color:#fff;
+    position: relative;
+    border-radius:5px;
+    box-shadow: 1px 2px 9px -1px rgba(0,0,0,0.75);
+}
+.remove-distributor{
+    position: absolute;
+    top:3px;
+    right:3px;
+}
+.remove-distributor:hover{
+    cursor: pointer;
+}
+.dist-input{
+    display:block;
+}
+.icon:hover{
+    cursor: pointer;
+}
+.error-message{
+    text-align: left;
+}
+/* .products-list{
+    position: absolute;
+    top:3px;
+    z-index: 9;
+    background-color:black;
+    left:50%;
+    transform: translateX(-50%);
+    margin:10px 20px;
+} */

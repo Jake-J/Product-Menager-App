@@ -1,0 +1,14 @@
+.action-message{
+    background-color:#dfdfdd;
+    border:1px solid #cdcdcd;
+    color:gray;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:5px;
+}
+
+.message-btn{
+    padding:8px 12px;
+    margin:5px 0;
+    font-weight: bold;
+}
