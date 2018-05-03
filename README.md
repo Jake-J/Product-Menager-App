@@ -24,6 +24,8 @@ How to run:
                            OIDS = FALSE);` <br />
           *products => `(id bigint NOT NULL, price integer NOT NULL, name text NOT NULL, distributor_fk bigint NOT NULL, PRIMARY KEY (id),
                          CONSTRAINT distributor FOREIGN KEY (distributor_fk) REFERENCES public.distributors (dist_id) MATCH SIMPLE ON                               UPDATE NO ACTION ON DELETE RESTRICT) WITH (OIDS = FALSE);` <br />
+                         
+                         
 5.Make sure ports :8090 and :4200 aren't use by your local machine. 
 5.Start springboot app by executing `SpringJPA-Postgres-1-0.0.1-SNAPSHOT.jar` file in target directory.        
 6.Start angular in dev mode by running `npm run start` in command line at angular5-cli folder.
